@@ -23,12 +23,12 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
-              "./node_modules/bootswatch/dist/united/bootstrap.css",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/font-awesome/css/font-awesome.css",
-              "./node_modules/ngx-toastr/toastr.css",
-              "./node_modules/ngx-spinner/animations/line-scale-party.css",
+              "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootswatch/dist/united/bootstrap.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/ngx-spinner/animations/line-scale-party.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -38,13 +38,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
                 }
               ],
               "fileReplacements": [
@@ -67,13 +67,12 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "sslKey": "./ssl/server.key",
             "sslCert": "./ssl/server.crt",
-            "ssl": true,
-            "browserTarget": "test:build"
+            "sslKey": "./ssl/server.key",
+            "ssl": true
           },
+          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "client:build:production"
@@ -110,8 +109,7 @@
       }
     }
   },
-  "defaultProject": "client",
   "cli": {
-    "analytics": "bbc07cd1-9af7-43e4-9d70-1d2dcf80831b"
+    "analytics": "59d61711-74b8-4579-991b-16dee7ba8613"
   }
 }

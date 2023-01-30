@@ -1,6 +1,5 @@
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using API.Data;
 using API.DTOs;
 using API.Entities;
@@ -16,8 +15,7 @@ namespace API.Controllers
         private readonly DataContext _context;
         private readonly ITokenService _tokenService;
         private readonly IMapper _mapper;
-        public AccountController(DataContext context, ITokenService tokenService,
-            IMapper mapper)
+        public AccountController(DataContext context, ITokenService tokenService, IMapper mapper)
         {
             _mapper = mapper;
             _tokenService = tokenService;
@@ -44,7 +42,8 @@ namespace API.Controllers
             {
                 Username = user.UserName,
                 Token = _tokenService.CreateToken(user),
-                KnownAs = user.KnownAs
+                KnownAs = user.KnownAs,
+                Gender = user.Gender
             };
         }
 
@@ -70,8 +69,9 @@ namespace API.Controllers
             {
                 Username = user.UserName,
                 Token = _tokenService.CreateToken(user),
-                PhotoUrl = user.Photos.Find(x => x.IsMain)?.Url,
-                KnownAs = user.KnownAs
+                PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url,
+                KnownAs = user.KnownAs,
+                Gender = user.Gender
             };
         }
 

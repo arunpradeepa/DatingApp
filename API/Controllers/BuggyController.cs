@@ -1,4 +1,3 @@
-using System;
 using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Authorization;
@@ -28,7 +27,7 @@ namespace API.Controllers
 
             if (thing == null) return NotFound();
 
-            return Ok(thing);
+            return thing;
         }
 
         [HttpGet("server-error")]
